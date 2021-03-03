@@ -27,8 +27,22 @@ class damaitaliana {
 	        $move5 = explode($move3[1],"");
 	        $temm = $chessb [intval($move2[0])][intval($move2[1])];
 	        if($temm == " "){
-	            $chessb [intval($move2[0])][intval($move2[1])] = " ";
-	            $chessb [intval($move5[0])][intval($move5[1])] = "w";
+	            $c = intval($move2[1]);
+	            for($i = intval($move2[0]);$i < intval($move5[0]); $i++){
+	                if(intval($move5[1]) > intval($move2[1])){
+	               $chessb [$i -1][$c -1] = " ";
+	            $chessb [$i][$c] = "w";
+	            $c++;
+	            }else{
+	                	               $chessb [$i -1][$c -1] = " ";
+	            $chessb [$i][$c] = "w";
+	            $c--;
+	            }
+	                
+	            }
+	            
+	        }else{
+	            return "invalid move";
 	        }
 	    }
 	    return $chessb;
